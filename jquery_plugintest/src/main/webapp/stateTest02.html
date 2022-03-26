@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./jquery-ui/jquery-ui.css">
+<style type="text/css">
+	.box{
+		padding: 5px;
+	}
+	.box p{
+		margin: 0px;
+		padding: 5px;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#radio").buttonset();
+		
+		function reset(){
+			let resetClass = "ui-corner-all ui-widget-content box";
+			$("#output").attr("class",resetClass);
+		}
+		
+		reset();
+		
+		$("button").click(function(){
+			reset();
+		});
+		
+		$("#radio > input").change(function(){
+			reset();
+			$("#output").addClass("ui-state-"+$(this).val());
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="radio">
+		<input type="radio" name="theme" id="highlight" value="highlight">
+		<label for="highlight">highlight</label>
+
+		<input type="radio" name="theme" id="error" value="error">
+		<label for="error">error</label>
+
+		<input type="radio" name="theme" id="error_text" value="error_text">
+		<label for="error_text">error_text</label>
+
+		<input type="radio" name="theme" id="disabled" value="disabled">
+		<label for="disabled">disabled</label>
+		
+		<button>RESET</button>
+	</div>
+	
+	<div id="output">
+		<p>다들 붕어빵을 그리워하고 뜨끈한 군고구마의 정감을 기억한다. 
+		
+		허름하고 오래된 것들이 새로운 유행과 만나 탄생한 ‘뉴트로’ 감성을 “힙하다”며 좋아한다. 
+		
+		그러면서도 노점은 ‘세금도 안 내는 도둑’이라고 부른다. 포장마차를 하루빨리 내몰아야 하는 흉물로 보는 시각도 엄연히 존재한다. 
+		
+		지난해 노점상의 월평균 운영소득은 131만2000원이었다. 
+		
+		이들의 54.9%는 100만원 밑으로 벌었다(한국도시연구소·‘노점운영가구 설문조사분석 결과와 시사점’). 
+		
+		그럼에도 “노점 할머니들 다 벤츠 끌고 다닌다더라”는 말이 공공연히 나돈다. 
+		
+		우리의 ‘엄·근·진(엄격·근엄·진지)’은 왜 이토록 선택적일까. 
+		
+		붕어빵은 맛있지만, 붕어빵을 굽는 이의 생존은 또 다른 문제인 걸까.
+		</p>
+	</div>
+</body>
+</html>
