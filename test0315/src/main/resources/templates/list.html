@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>부서목록</h2>
+	<hr>
+	<a href="insert.html">등록</a>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<td>부서번호</td>
+				<td>부서명</td>
+				<td>부서위치</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody>			
+			<tr th:each="d : ${list}">
+				<td th:text="${d.dno}"></td>
+				<td th:text="${d.dname}"></td>
+				<td th:text="${d.dloc}"></td>
+				<td>
+					<a th:href="@{/update(dno=${d.dno})}">수정</a>
+					<a th:href="@{/delete(dno=${d.dno})}">삭제</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
